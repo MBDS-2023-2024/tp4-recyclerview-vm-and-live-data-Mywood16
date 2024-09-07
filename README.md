@@ -35,11 +35,7 @@ tels que :
 ## Améliorer l'application
 
 1. Repérez les derniers TODO dans le code et essayez de les implémenter
-    2. On va modifier le comportement du bouton supprimer de l'application pour qu'en cliquant sur
-       le
-       bouton delete :
 
-    - On ne supprime plus l'utilisateur, mais on change son statut (activé <-> desactivé)
     - On met un background 'rouge' sur la cellule quand l'utilisateur est désactivé et blanc quand
       il
       est activé

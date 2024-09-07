@@ -1,5 +1,6 @@
 package org.mbds.unice.github.ui.users
 
+import android.graphics.Color
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -16,6 +17,7 @@ class ListUserViewHolder(private val binding: ItemListUserBinding) : RecyclerVie
 
     fun bind(user: User, callback: UserListAdapter.Listener) {
         binding.itemListUserUsername.text = user.login
+
         // Charger l'image avec Coil
         binding.itemListUserAvatar.load(user.avatarUrl) {
             crossfade(true)
@@ -23,6 +25,21 @@ class ListUserViewHolder(private val binding: ItemListUserBinding) : RecyclerVie
           //  error(R.drawable.error_avatar) // Optionnel, image d'erreur
         }
 
-        binding.itemListUserDeleteButton.setOnClickListener { callback.onClickDelete(user) }
+        // Changer l'icône et la couleur d'arrière-plan en fonction de l'état
+        binding.itemListUserDeleteButton.setImageResource(
+            if (user.isActive) R.drawable.ic_delete_black_24dp else R.drawable.ic_restore_black_24dp
+        )
+
+        binding.root.setBackgroundColor(
+            if (user.isActive) Color.WHITE else Color.RED
+        )
+
+        // Gestion du clic sur le bouton delete
+        binding.itemListUserDeleteButton.setOnClickListener {
+            callback.onClickDelete(user)
+        }
     }
 }
+
+
+

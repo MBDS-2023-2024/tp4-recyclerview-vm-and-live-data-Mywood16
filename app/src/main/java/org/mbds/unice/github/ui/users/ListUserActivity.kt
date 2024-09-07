@@ -108,12 +108,12 @@ class ListUserActivity : AppCompatActivity(), UserListAdapter.Listener {
 
         // Ajouter une boîte de dialogue pour confirmer la suppression
         AlertDialog.Builder(this)
-            .setTitle("Supprimer l'utilisateur")
-            .setMessage("Êtes-vous sûr de vouloir supprimer ${user.login} ?")
+            .setTitle("Changer le statut de l'utilisateur")
+            .setMessage("Êtes-vous sûr de vouloir changer le statut ${user.login} ?")
             .setPositiveButton("Oui") { _, _ ->
                 // Si l'utilisateur confirme, supprimer l'utilisateur via le ViewModel
                 viewModel.deleteUser(user)
-                Log.d("ListUserActivity", "Utilisateur supprimé: ${user.login}")
+                Log.d("ListUserActivity", "Statut changé: ${user.login}")
             }
             .setNegativeButton("Non", null)
             .show()
