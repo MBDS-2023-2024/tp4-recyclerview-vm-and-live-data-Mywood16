@@ -1,5 +1,6 @@
 package org.mbds.unice.github.data.api
 
+import android.util.Log
 import org.mbds.unice.github.data.model.User
 
 class FakeApiService : ApiService {
@@ -23,6 +24,7 @@ class FakeApiService : ApiService {
     override fun addRandomUser() {
         val randomUser = FakeApiServiceGenerator.FAKE_USERS_RANDOM.random()
         _users.add(randomUser)
+        Log.d("FakeApiService", "Random user added: $randomUser")
 
     }
 
